@@ -12,6 +12,8 @@ window.onload = function () {
 		} else {
 			resultDisplay.innerHTML = 'Ready!'
 		}
+		
+		textInputBox.focus()
 	})
 
 	textInputBox.addEventListener('input', function (event) {
