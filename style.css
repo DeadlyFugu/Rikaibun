@@ -1,0 +1,154 @@
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+#input {
+	display: block;
+
+	background-color: #e8e8e8;
+	color: darkgray;
+	border: none;
+	outline: none;
+	margin: 0;
+	padding: 10px;
+
+	width: 100%;
+
+	font-size: 24px;
+
+	box-sizing: border-box;
+}
+
+#result {
+	display: flex;
+
+	background-color: #eeeeee;
+	color: #444;
+	flex-grow: 1;
+
+	align-items: center;
+	justify-content: center;
+}
+
+#result-span {
+	font-family: sans-serif;
+	font-size: 48pt;
+
+	margin-top: -48px; /* -48px to counter ruby text */
+}
+
+.word {
+	border-bottom-color: #999;
+	border-bottom-width: 6px;
+	border-bottom-style: solid;
+	margin-right: 10px;
+
+	position: relative;
+}
+
+/* WORD HIGHLIGHTING */
+
+.noun {
+	color: #99cc99;
+}
+
+.verb {
+	color: #6699cc;
+}
+
+.adjective {
+	color: #ffcc66;
+}
+
+.adverb {
+	color: #f2777a;
+}
+
+.particle {
+	color: #cc99cc;
+}
+
+.aux-verb {
+	color: #66cccc;
+}
+
+.other {
+	color: #a09f93;
+}
+
+.noun-back {
+	background-color: #99cc99;
+}
+
+.verb-back {
+	background-color: #6699cc;
+}
+
+.adjective-back {
+	background-color: #ffcc66;
+}
+
+.adverb-back {
+	background-color: #f2777a;
+}
+
+.particle-back {
+	background-color: #cc99cc;
+}
+
+.aux-verb-back {
+	background-color: #66cccc;
+}
+
+.other-back {
+	background-color: #a09f93;
+}
+
+.popup .other {
+	color: #f2f0ec;
+}
+
+.word .popup {
+    visibility: hidden;
+    width: 240px;
+    /*height: 200px;*/
+    background-color: #999;
+    color: #eee;
+    padding: 5px 5px;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    margin-top: 2px;
+
+    /* Style popup contents */
+
+	font-size: 11pt;
+}
+
+.word:hover {
+    border-radius: 6px;
+	background-color: #f8f8f8;
+	border-bottom-width: 20px;
+}
+
+.word:hover .popup {
+	visibility: visible;
+}
+
+.purpose {
+	float: right;
+	color: #f2f0ec;
+	border-radius: 4px;
+	padding: 2px 4px;
+	font-size: 9pt;
+	margin-left: 5px;
+}

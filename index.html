@@ -2,10 +2,24 @@
 <html>
 <head>
 	<meta charset="utf8">
-	<title>Placeholder</title>
+	<title>理解文 - Rikaibun</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="kuromoji/build/kuromoji.js"></script>
+	<script type="text/javascript" src="kuromoji_to_jmdict.js"></script>
+	<script type="text/javascript" src="kuromoji_to_jmdict_2.js"></script>
+	<script type="text/javascript" src="jmdict_meanings.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-	<h1>Placeholder</h1>
-	<p>Placeholder</p>
+	<input id="input" type="input" placeholder="Test">
+	<section id="result">
+		<span id="result-span">
+			Loading...
+			<!--<span id="test" class="adjective">この<div id="popup_test">
+				【この】
+				<span class="reading adjective">連体詞</span>
+			</div></span><span class="noun"><ruby>寿司<rt>すし</rt></ruby></span><span class="particle">は</span><span class="adverb">めっちゃ</span><span class="adjective"><ruby>美味<rt>おい</rt></ruby>しい</span><span class="particle">な</span>-->
+		</span>
+	</section>
 </body>
 </html>
