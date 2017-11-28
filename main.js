@@ -147,6 +147,40 @@ const toRomaji = function(str) {
 	return result
 }
 
+const lookupKanji = function (kanji) {
+	return kanjidic2[kanji]
+}
+
+const wrapKanji = function (kanji) {
+	const k = lookupKanji(kanji)
+	var builtString = '<div class="kanji">' + kanji
+	builtString += '<div class="popup2"><div class="primary"><div class="top"><span class="character">' + kanji + '</span><span class="meaning">' + k.meaning.join(", ") + '</span><span class="frequency">#' + k.freq + '</span></div><div class="bottom"><div class="onyomi"><h5>On\'yomi</h5>' + k.on + '</div><div class="kunyomi"><h5>Kun\'yomi</h5>' + k.kun + '</div></div></div><div class="secondary">'
+	builtString += '<div class="back-lv' + (k.grade > 7 ? 7 : k.grade) + '"><h5>Grade</h5>' + k.grade + '</div>'
+	builtString += '<div class="back-lv' + (9 - 2 * k.jlpt) + '"><h5>JLPT</h5>' + k.jlpt + '</div>'
+	builtString += '<div class="back-lv' + (Math.ceil(k.wk / 10)) + '"><h5>WaniKani</h5>' + k.wk + '</div>'
+	builtString += '</div></div>'
+	builtString += '</div>'
+
+	return builtString
+}
+
+const wrapKanjiInString = function (str) {
+	var builtString = ''
+
+	for (index in str) {
+		const code = str.charCodeAt(index)
+		const char = str.charAt(index)
+		if (code >= 0x4e00 && code <= 0x9fff) {
+			// is kanji
+			builtString += wrapKanji(char)
+		} else {
+			builtString += char
+		}
+	}
+
+	return builtString
+}
+
 const updateResultDisplay = function (resultDisplay, inputText) {
 	const tokens = km_tokenizer.tokenize(inputText)
 
@@ -204,7 +238,7 @@ const updateResultDisplay = function (resultDisplay, inputText) {
 				}
 				displayEndIndex = display.length - endIndex + 1
 				readingEndIndex = reading.length - endIndex + 1
-				wordDisplay = display.substring(0, beginIndex) + '<ruby>' + display.substring(beginIndex, displayEndIndex) + '<rt>' + reading.substring(beginIndex, readingEndIndex) + '</rt></ruby>' + display.substring(displayEndIndex, display.length)
+				wordDisplay = display.substring(0, beginIndex) + '<ruby>' + wrapKanjiInString(display.substring(beginIndex, displayEndIndex)) + '<rt>' + reading.substring(beginIndex, readingEndIndex) + '</rt></ruby>' + display.substring(displayEndIndex, display.length)
 				usedRuby = true
 			}
 		}
