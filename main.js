@@ -40,19 +40,34 @@ const wordTypeLookup = {
 	"フィラー": ["Filler", "other", 0],
 }
 
+// const englishTable = {
+// 	"ガル接続": "-garu Setsuzoku",
+// 	"仮定形": "Kateikei",
+// 	"体言接続": "Taigen Setsuzoku",
+// 	"基本形": "Dictionary",
+// 	"未然ウ接続": "-u",
+// 	"未然レル接続": "-reru",
+// 	"未然形": "-nai",
+// 	"連用タ接続": "-ta",
+// 	"連用形": "-masu",
+// 	"連用デ接続": "-de",
+// 	"命令ｉ": "Command -i",
+// 	"命令ｅ": "Command"
+// }
+
 const englishTable = {
 	"ガル接続": "-garu Setsuzoku",
 	"仮定形": "Kateikei",
 	"体言接続": "Taigen Setsuzoku",
-	"基本形": "Dictionary",
-	"未然ウ接続": "-u",
-	"未然レル接続": "-reru",
-	"未然形": "-nai",
-	"連用タ接続": "-ta",
-	"連用形": "-masu",
-	"連用デ接続": "-de",
-	"命令ｉ": "Command -i",
-	"命令ｅ": "Command"
+	"基本形": "Jishokei",
+	"未然ウ接続": "Mizenkei -o",
+	"未然レル接続": "Mizenkei",
+	"未然形": "Mizenkei",
+	"連用タ接続": "Ren'youkei",
+	"連用形": "Ren'youkei",
+	"連用デ接続": "Ren'youkei",
+	"命令ｉ": "Meireikei",
+	"命令ｅ": "Meireikei"
 }
 
 const first3 = function(x) {
@@ -250,7 +265,7 @@ const updateResultDisplay = function (resultDisplay, inputText) {
 			builtOutput += '<span class="word' + clazz + '">' + wordDisplay
 			builtOutput += '<div class="popup">\n【' + (isKnown ? token.basic_form : token.surface_form) + '】<span class="reading">' + toRomaji(token.pronunciation != undefined && token.pronunciation.length > 0 ? token.pronunciation: token.surface_form) + "</span>"
 			builtOutput += (purpose ? '<span class="purpose' + clazz_back + '">' + purpose[0] + '</span>' : '')
-			//(token.conjugated_form != '*' ? '<span class="purpose' + clazz_back + '">' + englishTable[token.conjugated_form] + '</span>' : '')
+			// builtOutput += (token.conjugated_form != '*' ? '<span class="purpose' + clazz_back + '">' + englishTable[token.conjugated_form] + '</span>' : '')
 			if (isKnown || meaning_index < 0)
 				builtOutput += '<br/><ul>' + first3(meaning_strings[meaning_index].split(";")).map(function (x) {return '<li>- ' + x + '</li>'}).join("") + '</ul>'
 			else

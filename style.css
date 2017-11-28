@@ -204,10 +204,10 @@ footer a {
 /* --- Kanji popup style --- */
 .kanji .popup2 {
   background-color: #dbdbdb;
-  width: 270px;
+  width: 316px;
   display: grid;
-  grid-template: 1fr / 190px 80px;
-  border-radius: 10px;
+  grid-template: 1fr / 1fr 80px;
+  border-radius: 6px;
   color: #444;
 }
 
@@ -237,7 +237,9 @@ footer a {
 .kanji .frequency {
   font-family: sans-serif;
   font-size: 11px;
-  text-align: right;
+  margin-left: 12px;
+  margin-right: 8px;
+  text-align: center;
   color: #888;
 }
 
@@ -259,16 +261,20 @@ footer a {
 }
 
 .bottom h5 {
-  margin: 2px 4px;
+  margin: 8px 4px;
 }
 
 .secondary h5 {
-  margin-top: 4px;
-  margin-bottom: 2px;
+  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 h5 {
   color: #666;
+  text-transform: uppercase;
+  /*padding-top: 8px;
+  padding-bottom: 6px;*/
+  text-align: center;
 }
 
 .secondary div {
@@ -276,21 +282,23 @@ h5 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-bottom: 5px;
 }
 
 .kanji .popup2 {
     visibility: hidden;
-    width: 270px;
+    width: 316px;
  
     position: absolute;
     z-index: 1;
     
     bottom: 175%;
     left: 50%;
-    margin-left: -135px;
+    margin-left: -158px;
 
 	font-size: 11pt;
 	text-align: left;
+	padding: 5px;
 }
 
 .kanji:hover {
@@ -304,12 +312,13 @@ h5 {
 
 .kanji {
 	display: inline;
+	position: relative;
 }
 
 .kanji .popup2::after {
     content: " ";
     position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
+    top: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
